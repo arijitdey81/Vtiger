@@ -3,15 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="scriptsContacts.TC_11_createcontact_assignedTo_Support_Group">
+      <class name="Practice.SpiceJet">
         <methods>
-          <include name="logOutApp"/>
-          <include name="launchBrowser"/>
-          <include name="logInApp"/>
-          <include name="closeBrowser"/>
-          <include name="createcontact_assignedTo_Support_Group"/>
+          <include name="bookTicket"/>
         </methods>
-      </class> <!-- scriptsContacts.TC_11_createcontact_assignedTo_Support_Group -->
+      </class> <!-- Practice.SpiceJet -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

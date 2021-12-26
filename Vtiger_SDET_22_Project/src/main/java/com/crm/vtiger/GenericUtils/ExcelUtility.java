@@ -27,7 +27,7 @@ public class ExcelUtility {
 	 * @throws IOException
 	 */
 	public String getExcelData(String sheetName,int rownum,int cellnum) throws EncryptedDocumentException, IOException {
-		FileInputStream file=new FileInputStream(IPathConstant.EXCELPATH);
+		FileInputStream file=new FileInputStream(IPathConstant.excelPath);
 		Workbook workbook=WorkbookFactory.create(file);
 		Sheet sheet = workbook.getSheet(sheetName);
 		Row row = sheet.getRow(rownum);

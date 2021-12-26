@@ -23,7 +23,15 @@ public class CreateNewContact {
 	@FindBy(xpath = "//input[@title='Save [Alt+S]']")
 	private WebElement saveBtn;
 	
+	@FindBy(xpath="(//img[@alt='Select'])[1]")
+	private WebElement OrgNameImgBtn;
 	
+	
+	
+	public WebElement getOrgNameImgBtn() {
+		return OrgNameImgBtn;
+	}
+
 	public WebElement getContactLastName() {
 		return LastName;
 	}

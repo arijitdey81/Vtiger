@@ -48,19 +48,23 @@ public class DataBaseUtility {
 		
 	}
 	
-	public String getDataFromDB(String query,int columnName,String expData) throws Throwable {
+	public String executeQueryAndGetDataFromDB(String query,int columnName,String expectedData) throws Throwable {
 		boolean flag=false;
 		result=con.createStatement().executeQuery(query);
 		while(result.next()) {
-			if(result.getString(columnName).equalsIgnoreCase(expData)) {
+			if(result.getString(columnName).equalsIgnoreCase(expectedData)) {
 				flag=true;
 				break;
 			}
-			if(flag) {
-				System.out.println(expData+"data verified in database");
-				return expData;
-			}
 		}
-		return expData;
+			if(flag) {
+				System.out.println(expectedData+"-->data verified in database");
+				return expectedData;
+			}else {
+				System.out.println(expectedData+"-->data is not verified in the database");
+				return expectedData;
+			}
+		
+		
 	}
 }
