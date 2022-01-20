@@ -1,6 +1,8 @@
 package scriptsContacts;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -37,11 +39,12 @@ import com.crm.vtiger.pomrepositorylib.LogIn;
 @Listeners(com.crm.vtiger.GenericUtils.ListenerImplement.class)
 public class TC_11_createcontact_assignedTo_Support_Group extends BaseClass {
 	
-	@Test(groups= {"smoketest"},invocationCount = 5)
+	@Test(groups= {"smoketest"})
 	public void createcontact_assignedTo_Support_Group() throws IOException, InterruptedException {
 		
-	
+
 		/*read test data*/
+		
 		String contactLastName = eUtil.getExcelData("Contacts", 1, 1)+"_"+jUtil.getRandomData();
 		String assignedTo = eUtil.getExcelData("Contacts", 1, 3);
 		
@@ -70,8 +73,9 @@ public class TC_11_createcontact_assignedTo_Support_Group extends BaseClass {
 		  SoftAssert as= new SoftAssert();
 		  as.assertTrue(actSucMsg.contains(contactLastName));
 		  System.out.println("========Contacts Created Successfull=========");
-		  as.fail(); as.assertAll();
+		  as.assertAll();
 		 
+		  
 	}
 
 }

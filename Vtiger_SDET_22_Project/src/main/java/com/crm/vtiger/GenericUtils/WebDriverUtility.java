@@ -94,7 +94,7 @@ public class WebDriverUtility {
 		 * @param element
 		 * @param value
 		 */
-		public void SelectOptionValue(WebElement element, String  value) {
+		public void SelectOption(String value, WebElement element) {
 			Select select=new Select(element);
 			select.selectByValue(value);
 		}

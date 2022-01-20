@@ -10,6 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -28,9 +29,10 @@ import com.crm.vtiger.pomrepositorylib.LogIn;
  * @author ARIJIT
  *
  */
+@Listeners(com.crm.vtiger.GenericUtils.ListenerImplement.class)
 public class TC_12_createcontact_assignedTo_Teamselling_Group extends BaseClass {
 	
-	@Test(groups= {"smoketest"},invocationCount = 5)
+	@Test(groups= {"smoketest"})
 	public void createcontact_assignedTo_Teamselling_Group() throws IOException, InterruptedException {
 		
 		
@@ -59,10 +61,15 @@ public class TC_12_createcontact_assignedTo_Teamselling_Group extends BaseClass 
 		ContactsInfo coninfop=new ContactsInfo(driver);
 		wUtil.waitForElementVisibility(driver, coninfop.getSuccessfullMsg());
 		String actSucMsg = coninfop.getSuccessfullMsg().getText();
-		Assert.assertTrue(actSucMsg.contains(contactLastName));
-		System.out.println("========Contacts Created Successfull=========");
-		
-		
+		/*
+		 * //Assert.assertTrue(actSucMsg.contains(contactLastName));
+		 * System.out.println("========Contacts Created Successfull=========");
+		 */
+		SoftAssert as= new SoftAssert();
+		  as.assertTrue(actSucMsg.contains(contactLastName));
+		  System.out.println("========Contacts Created Successfull=========");
+		 // as.fail(); 
+		  as.assertAll();
 		
 	}
 

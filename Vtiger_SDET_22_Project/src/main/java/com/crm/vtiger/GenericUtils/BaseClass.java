@@ -29,8 +29,10 @@ public class BaseClass {
 	@BeforeClass(groups= {"smoketest","regression"})
 	public void launchBrowser(@Optional("chrome") String browserValue) throws IOException {
 		/*read data from property file*/
+		
 		//String BROWSER = fileUtility.getPropertyKeyValue("browser");
 		String URL = fileUtility.getPropertyKeyValue("url");
+		
 		/*launch browser*/
 		if(browserValue.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -61,8 +63,8 @@ public class BaseClass {
 		@AfterMethod(groups= {"smoketest","regression"})
 		public void logOutApp() throws InterruptedException {
 			//signout
-			HomePage hp=new HomePage(driver);
-			hp.logout();
+			//HomePage hp=new HomePage(driver);
+			//hp.logout();
 			System.out.println("============Sign out Successfully===========");
 		}
 		@AfterClass(groups= {"smoketest","regression"})
